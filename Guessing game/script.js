@@ -5,6 +5,7 @@ let score = 20;
 let highscore = 0;
 
 const checkButton = document.querySelector(".check");
+const input = document.querySelector(".guess");
 
 const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
@@ -49,6 +50,11 @@ const guessingGame = function () {
   }
 };
 checkButton.addEventListener("click", guessingGame);
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    guessingGame();
+  }
+});
 
 document.querySelector(".again").addEventListener("click", function () {
   score = 20;
